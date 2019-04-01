@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import {environment} from '../../environments/environment'
 import {User} from '../userInfo-class/user'
+import {Repo} from '../repoClass/repo'
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubRequestService {
   user:User;
+  repo:Repo;
 
   constructor(private http:HttpClient) {
      this.user=new User("","","","","");
@@ -46,5 +48,32 @@ export class GithubRequestService {
     })
         return promise
       }
+      repoRequest(){
 
+        interface ApiResponse{
+          name:string;
+          html_url:string
+          description: string
+          created_at: string
+
+
+        }
+        let promise =new Promise((resolve,reject)=>{
+            this.http.get<ApiResponse>('https://api.github.com/users/niklauspeter/repo?access_token='+ environment.apiKey).toPromise().then(response=>{
+
+                this.repo.name=response.name
+                this.repo.html_url=response.html_url
+                this.repo.description=response.description
+                this.repo.created_at=response.created_at
+
+                resolve()
+              },
+              error=>{
+                  console.log("Not found")
+                    reject(error)
+                }
+            )
+        })
+            return promise
+  }
 }
