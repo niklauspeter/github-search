@@ -12,16 +12,22 @@ import {GithubRequestService} from '../github-http/github-request.service'
 export class GithubComponent implements OnInit {
   user:User;
   repo:Repo;
+  private userName:string;
   private username : string;
   constructor(private http:HttpClient,private githubService: GithubRequestService) {
 
   this.username = "niklauspeter"}
 
+searchUser(){
+  this.githubService.updateUsername(this.userName);
+  this.githubService.userRequest()
+    this.user=this.githubService.user
+    this.githubService.repoRequest()
+    this.repo=this.githubService.repo
+
+}
   ngOnInit() {
-    this.githubService.userRequest()
-      this.user=this.githubService.user
-      this.githubService.repoRequest()
-      this.repo=this.githubService.repo
+
    }
 
 
