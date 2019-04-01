@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgModule } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import {User} from '../userInfo-class/user'
+import {Repo} from '../repoClass/repo'
 import {GithubRequestService} from '../github-http/github-request.service'
 
 @Component({
@@ -10,6 +11,7 @@ import {GithubRequestService} from '../github-http/github-request.service'
 })
 export class GithubComponent implements OnInit {
   user:User;
+  repo:Repo;
   private username : string;
   constructor(private http:HttpClient,private githubService: GithubRequestService) {
 
@@ -18,6 +20,8 @@ export class GithubComponent implements OnInit {
   ngOnInit() {
     this.githubService.userRequest()
       this.user=this.githubService.user
+      this.githubService.repoRequest()
+      this.repo=this.githubService.repo
    }
 
 
