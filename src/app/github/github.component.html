@@ -1,20 +1,17 @@
-<p>
-  github works!
-</p>
-<h1>Github stuff</h1>
+
+
 <div class="container-fluid search">
 
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="text" placeholder="Username/repository" aria-label="Search" >
+    <input class="form-control mr-sm-2" type="text" placeholder="Username/repository" aria-label="Search" [(ngModel)]="userName" name = "userName" (keyup)= "searchUser()" >
     <button class="btn btn-outline-info my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i>Search</button>
   </form>
-  <p class="searchtext">Enter username or repository to search for the github profile</p>
 </div>
 <div class="container">
 
     <div class="row">
         <blockquote class="text-center text-lg">
-          <p>welcome to github</p>
+      
           <p>image:<img src="{{user.image}}" class="img-circle img-responsive" alt="profile image"></p>
             <p>User name: {{user.name}}</p>
             <p>users followers: {{user.followers}}</p>
