@@ -38,11 +38,8 @@ export class GithubRequestService {
             resolve()
           },
           error=>{
-                this.user.name="Never, never, never give up."
-                this.user.repositories="winston churchill"
-                this.user.followers="blank"
-                this.user.following="blank"
-                this.user.image="blank"
+                this.user.name="user not found"
+    
                 reject(error)
             }
         )
