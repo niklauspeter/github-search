@@ -10,6 +10,7 @@ import {Repo} from '../repoClass/repo'
 export class GithubRequestService {
   user:User;
   repo:Repo;
+  apiKey:any[];
   private userName:string;
 
   constructor(private http:HttpClient) {
@@ -26,7 +27,7 @@ export class GithubRequestService {
 
     }
     let promise =new Promise((resolve,reject)=>{
-        this.http.get<ApiResponse>('https://api.github.com/users/'+ this.userName +'?access_token='+ environment.apiKey).toPromise().then(response=>{
+        this.http.get<ApiResponse>('https://api.github.com/users/'+ this.userName +'?access_token='+ '5a34bd337bcd326cdc0c71d3df54f2a07b73563e').toPromise().then(response=>{
 
             this.user.name=response.login
             this.user.repositories=response.public_repos
@@ -39,7 +40,7 @@ export class GithubRequestService {
           },
           error=>{
                 this.user.name="user not found"
-    
+
                 reject(error)
             }
         )
@@ -57,7 +58,7 @@ export class GithubRequestService {
 
         }
         let promise =new Promise((resolve,reject)=>{
-            this.http.get<ApiResponse>('https://api.github.com/users/'+ this.userName+ '/repo?access_token='+ environment.apiKey).toPromise().then(response=>{
+            this.http.get<ApiResponse>('https://api.github.com/users/'+ this.userName+ '/repo?access_token='+ '5a34bd337bcd326cdc0c71d3df54f2a07b73563e').toPromise().then(response=>{
 
                 this.repo.name=response.name
                 this.repo.html_url=response.html_url
