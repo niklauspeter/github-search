@@ -1,25 +1,40 @@
 
-
-<div class="container-fluid search">
-
+<div class="container">
+<div >
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="text" placeholder="Username/repository" aria-label="Search" [(ngModel)]="userName" name = "userName" (keyup)= "searchUser()" >
+    <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Search" [(ngModel)]="userName" name = "userName" (keyup)= "searchUser()" >
     <button class="btn btn-outline-info my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i>Search</button>
   </form>
 </div>
-<div class="container">
+<div class="content">
 
     <div class="row">
-        <blockquote class="text-center text-lg">
-      
-          <p>image:<img src="{{user.image}}" class="img-circle img-responsive" alt="profile image"></p>
+      <div class="col-sm-4">
+        <img src="{{user.image}}" class="img-circle img-responsive" >
+      </div>
+      <div class="col-sm-4">
+        <div class= "panel panel-default">
+          <div class="panel-heading">
             <p>User name: {{user.name}}</p>
-            <p>users followers: {{user.followers}}</p>
-            <p>users following: {{user.following}}</p>
-            <footer><cite>this users repositories: {{user.repositories}}</cite></footer>
-        </blockquote>
+            </div>
+            <div class="panel-body">
+              </div>
+      </div>
+      </div>
+      <div class="col-sm-4">
+        <div>
+            <p>
+            <span class="label label-default"> followers {{user.followers}}</span>
+            <span class="label label-default"> following {{user.following}}</span>
+            <span class="label label-default"> repositories {{user.repositories}}</span>
+            </p>
+            <p>repositories: {{repo.html_url}}</p>
+        </div>
     </div>
+    </div>
+<div class="row">
 
-    <p>repo: {{repo.html_url}}</p>
+</div>
+</div>
 
 </div>
