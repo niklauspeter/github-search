@@ -12,7 +12,7 @@ import {GithubRequestService} from '../github-http/github-request.service'
 export class GithubComponent implements OnInit {
   user:User;
   repo:Repo;
-  private userName:string;
+  userName:string;
   private username : string;
   constructor(private http:HttpClient,private githubService: GithubRequestService) {
 
