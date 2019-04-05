@@ -12,3 +12,24 @@ height: 300px;
 .content{
   margin-top: 50px;
 }
+.repos{
+  margin-top: 50px;
+}
+.cards.repocard{
+  border: 1px solid #d8d4d4;
+   border-radius: 5px;
+   padding-bottom: 5px;
+   margin-bottom: 15px;
+}
+.inline{
+  display: inline;
+  color:blue;
+}
+.repo-title{
+  font-family: 'Libre Baskerville', serif;
+  text-align: center;
+  color: blue;
+}
+.name{
+  color: blue;
+}
