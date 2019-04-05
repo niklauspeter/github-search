@@ -9,32 +9,68 @@
 <div class="content">
 
     <div class="row">
-      <div class="col-sm-4">
+    <div class="col-sm-4">
         <img src="{{user.image}}" class="img-circle img-responsive" >
-      </div>
-      <div class="col-sm-4">
-        <div class= "panel panel-default">
-          <div class="panel-heading">
-            <p>User name: {{user.name}}</p>
-            </div>
-            <div class="panel-body">
-              </div>
+    </div>
+    <div class="col-sm-4" >
+    <div class= "cards">
+    <div class="card-heading">
+          User name:<p class="inline"><strong>{{user.name}}</strong></p>
+    </div>
+    <div class="card-body">
+              <p>Bio: {{user.bio}}</p>
+              <p>Hireable: {{user.hireable}}</p>
+              <p>Company: {{user.company}}</p>
+              <p>Date created: {{user.created_at}}</p>
+     </div>
       </div>
       </div>
       <div class="col-sm-4">
         <div>
             <p>
-            <span class="label label-default"> followers {{user.followers}}</span>
-            <span class="label label-default"> following {{user.following}}</span>
-            <span class="label label-default"> repositories {{user.repositories}}</span>
+            <span class="badge badge-primary">followers {{user.followers}}</span>
+
+            <span class="badge badge-info"> following {{user.following}}</span>
+
+            <span class="badge badge-success"> repositories {{user.repositories}}</span>
             </p>
-            <p>repositories: {{repo.html_url}}</p>
-        </div>
+
+    </div>
+
+    </div>
+    <div style="text-align:center">
+    <div class="repo-title">
+      <h3>{{user.name}}'s repositories</h3>
     </div>
     </div>
+    <div class="repos">
+
 <div class="row">
 
-</div>
-</div>
+  <div class="col-md-6" *ngFor='let repo of gitRepo.newRepo'>
 
+    <div class="cards repocard">
+
+      <div class="card-header">
+
+        <h5 class="card-title">
+          {{repo.name}}
+        </h5>
+      </div>
+        <div class="card-body">
+          <p>
+            <span class="name">Description:</span> {{repo.description}}
+          </p>
+          <p>
+            <span class="name"> Date created:</span> {{repo.created_at}}
+          </p>
+          <p>
+              <a href="{{repo.html_url}}">click here to view the repository</a>
+          </p>
+          </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
