@@ -14,7 +14,7 @@ export class GithubComponent implements OnInit {
   repo:[]
   userName:string;
   private username : string;
-  constructor(private http:HttpClient,private githubService: GithubRequestService,private gitRepo: GithubRequestService) {
+  constructor(private http:HttpClient,private githubService: GithubRequestService,public gitRepo: GithubRequestService) {
 
   this.username = "niklauspeter"}
 
